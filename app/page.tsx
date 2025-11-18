@@ -29,6 +29,9 @@ export default function LandingPage() {
             <Link href="#" className="hover:text-foreground transition-colors">
               Features
             </Link>
+            <Link href="/demos" className="hover:text-foreground transition-colors">
+              Demos
+            </Link>
             <Link href="#" className="hover:text-foreground transition-colors">
               Documentation
             </Link>
@@ -77,7 +80,7 @@ export default function LandingPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                 <Link
-                  href="#"
+                  href="/demos"
                   className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   Start Building
@@ -98,10 +101,10 @@ export default function LandingPage() {
                     <div className="h-3 w-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
                     <div className="h-3 w-3 rounded-full bg-green-500/20 border border-green-500/50" />
                   </div>
-                  <div className="mx-auto flex items-center gap-2 rounded-md bg-black/50 px-3 py-1 text-xs text-muted-foreground border border-white/5">
+                  <Link href="/demos" className="mx-auto flex items-center gap-2 rounded-md bg-black/50 px-3 py-1 text-xs text-muted-foreground border border-white/5 hover:text-white hover:border-white/20 transition-all cursor-pointer">
                     <Command className="h-3 w-3" />
                     <span>demo.v-grid.com</span>
-                  </div>
+                  </Link>
                 </div>
                 <div className="relative h-[400px] w-full bg-black font-mono text-sm">
                   {/* Mock Grid Header */}
@@ -334,6 +337,7 @@ export default function LandingPage() {
               <h3 className="mb-4 text-sm font-semibold text-white">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="#" className="hover:text-white transition-colors">Features</Link></li>
+                <li><Link href="/demos" className="hover:text-white transition-colors">Demos</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Examples</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Pricing</Link></li>
