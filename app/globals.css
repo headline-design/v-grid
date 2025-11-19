@@ -80,3 +80,28 @@ body {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
+
+
+/* Add flash animation for updated cells */
+@keyframes flash-cell {
+  0% {
+    background-color: rgb(134 239 172 / 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.cell-flash {
+  animation: flash-cell 1s ease-out;
+}
+
+/* Hide scrollbar while maintaining scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
