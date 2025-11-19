@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useCallback, useEffect, useMemo, useRef } from "react"
 import Papa from "papaparse"
 import { Button } from "@/components/ui/button"
-import { ArrowUp, ArrowDown, Pin, PinOff, Filter, X, ChevronDown, Maximize2 } from 'lucide-react'
+import { ArrowUp, ArrowDown, Pin, PinOff, Filter, X, ChevronDown, Maximize2, Calendar, Hash, Type, Link, Mail, CheckSquare, FileSpreadsheet } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -45,11 +45,12 @@ import type { FilterOperator, ColumnFilterWithOperator, EditAction, UndoRedoStat
 import { TableRoot } from "./table-root"
 import { autoSizeColumn, autoSizeAllColumns } from "@/lib/table-utils"
 import { useToast } from "@/hooks/use-toast"
+import { Skeleton } from "@/components/ui/skeleton"
 
-const STORAGE_KEY = "v0-table-data"
+const STORAGE_KEY = "v-grid-data"
 const MAX_HISTORY = 50
 
-interface V0TableProps {
+interface DataGridProps {
   onStateChange?: (state: {
     headers: string[]
     tableData: Record<string, any>[]
@@ -97,7 +98,7 @@ interface V0TableProps {
   scrollContainerRef?: React.RefObject<HTMLDivElement> // Added scrollContainerRef prop
 }
 
-export default function V0Table({ onStateChange, scrollContainerRef }: V0TableProps) {
+export function DataGrid({ onStateChange, scrollContainerRef }: DataGridProps) {
   const { toast } = useToast()
   const [file, setFile] = useState<File | null>(null)
   const [fileName, setFileName] = useState<string>("")
@@ -151,6 +152,8 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
 
   const [rowRange, setRowRange] = useState<{ start: number; end: number } | null>(null)
+
+  const [isLoading, setIsLoading] = useState(false)
 
   const detectColumnType = useCallback(
     (columnName: string, data: Record<string, any>[]): "string" | "number" | "date" | "boolean" | "url" | "email" => {
@@ -334,7 +337,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
         description: `${dataRows.length} rows imported from clipboard`,
       })
     } catch (error) {
-      console.error("[v0] Error pasting from clipboard:", error)
+      console.error("[VGrid] Error pasting from clipboard:", error)
       toast({
         title: "Paste Error",
         description: "Failed to paste data from clipboard",
@@ -523,6 +526,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
     if (!file) return
 
     setProcessing(true)
+    setIsLoading(true)
 
     try {
       const text = await file.text()
@@ -535,6 +539,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
           variant: "destructive",
         })
         setProcessing(false)
+        setIsLoading(false)
         return
       }
 
@@ -579,7 +584,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
         description: `Successfully loaded ${dataRows.length} rows`,
       })
     } catch (error) {
-      console.error("[v0] Error loading CSV:", error)
+      console.error("[VGrid] Error loading CSV:", error)
       toast({
         title: "Load Error",
         description: "Error loading CSV: " + (error as Error).message,
@@ -587,11 +592,13 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
       })
     } finally {
       setProcessing(false)
+      setIsLoading(false)
     }
   }, [file, detectColumnType, toast])
 
   useEffect(() => {
     const loadInitialData = () => {
+      setIsLoading(true)
       const stored = localStorage.getItem(STORAGE_KEY)
       if (stored) {
         try {
@@ -612,6 +619,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
           console.error("Error loading from localStorage:", error)
         }
       }
+      setIsLoading(false)
     }
 
     loadInitialData()
@@ -1033,7 +1041,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
         e.preventDefault()
         const value = tableData[rowIndex]?.[columnId] || ""
         navigator.clipboard.writeText(value).catch((err) => {
-          console.error("[v0] Failed to copy:", err)
+          console.error("[VGrid] Failed to copy:", err)
         })
         return
       }
@@ -1046,7 +1054,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
             handleCellEdit(rowIndex, columnId, text)
           })
           .catch((err) => {
-            console.error("[v0] Failed to paste:", err)
+            console.error("[VGrid] Failed to paste:", err)
           })
         return
       }
@@ -1298,6 +1306,16 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
         const isPinned = (columnPinning.left ?? []).includes(header) || (columnPinning.right ?? []).includes(header)
         const filterValue = (column.getFilterValue() as string) ?? ""
         const currentOperator = columnFilterOperators[header] || "contains"
+        const columnType = columnTypes[header] || "string"
+
+        const TypeIcon = {
+          string: Type,
+          number: Hash,
+          date: Calendar,
+          boolean: CheckSquare,
+          url: Link,
+          email: Mail
+        }[columnType] || Type
 
         return (
           <DropdownMenu>
@@ -1305,10 +1323,13 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-8 px-2 hover:bg-accent font-medium justify-between text-xs w-full"
+                className="h-8 px-2 hover:bg-accent font-medium justify-between text-xs w-full group"
               >
-                <span className="truncate">{header}</span>
-                <ChevronDown className="ml-1 h-3 w-3 flex-shrink-0 opacity-50" />
+                <div className="flex items-center gap-2 truncate">
+                  <TypeIcon className="h-3 w-3 text-muted-foreground/70" />
+                  <span className="truncate">{header}</span>
+                </div>
+                <ChevronDown className="ml-1 h-3 w-3 flex-shrink-0 opacity-0 group-hover:opacity-50 transition-opacity" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
@@ -1372,7 +1393,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
                     Pin to Left
                   </>
                 )}
-              </DropdownMenuItem>
+              </DropdownMenu>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => table && autoSizeColumn(header, table)} className="text-xs">
                 <Maximize2 className="mr-2 h-3 w-3" />
@@ -1536,6 +1557,7 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
     autoSizeColumn,
     tableData,
     table,
+    columnTypes, // Added columnTypes dependency
   ])
 
   const tableInstance = useReactTable({
@@ -1786,6 +1808,58 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
     }
   }, [onStateChange])
 
+  if (isLoading) {
+    return (
+      <div className="w-full h-[600px] border rounded-md p-4 space-y-4">
+        <div className="flex items-center justify-between">
+          <Skeleton className="h-8 w-[200px]" />
+          <div className="flex gap-2">
+            <Skeleton className="h-8 w-20" />
+            <Skeleton className="h-8 w-20" />
+          </div>
+        </div>
+        <div className="space-y-2">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="flex gap-4">
+              {Array.from({ length: 5 }).map((_, j) => (
+                <Skeleton key={j} className="h-10 w-full" />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (!isLoading && tableData.length === 0) {
+    return (
+      <div className="w-full h-[400px] border rounded-md flex flex-col items-center justify-center text-center p-8 bg-muted/5 border-dashed">
+        <div className="h-16 w-16 bg-muted rounded-full flex items-center justify-center mb-4">
+          <FileSpreadsheet className="h-8 w-8 text-muted-foreground" />
+        </div>
+        <h3 className="text-lg font-semibold mb-2">No Data Available</h3>
+        <p className="text-muted-foreground max-w-sm mb-6">
+          Get started by importing a CSV file, pasting data from your clipboard, or adding new rows manually.
+        </p>
+        <div className="flex gap-3">
+          <Button variant="outline" onClick={() => document.getElementById('file-upload')?.click()}>
+            Import CSV
+          </Button>
+          <Button onClick={() => addNewRows(5)}>
+            Add Empty Rows
+          </Button>
+        </div>
+        <input
+          id="file-upload"
+          type="file"
+          accept=".csv"
+          className="hidden"
+          onChange={handleFileSelect}
+        />
+      </div>
+    )
+  }
+
   return (
     <>
       {/* Keyboard Shortcuts Dialog */}
@@ -1954,43 +2028,51 @@ export default function V0Table({ onStateChange, scrollContainerRef }: V0TablePr
         </DialogContent>
       </Dialog>
 
-      {tableData.length > 0 && (
-        <TableRoot
-          tableInstance={tableInstance}
-          tableData={tableData}
-          globalFilterInput={globalFilterInput}
-          setGlobalFilterInput={setGlobalFilterInput}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          goToNextPage={goToNextPage}
-          goToPreviousPage={goToPreviousPage}
-          goToPage={goToPage}
-          rowSelection={rowSelection}
-          deleteSelectedRows={deleteSelectedRows}
-          visibleColumnsCount={visibleColumnsCount}
-          headers={headers}
-          getColumnStats={getColumnStats}
-          toggleColumn={toggleColumn}
-          showAllColumns={showAllColumns}
-          hideAllColumns={hideAllColumns}
-          leftPinnedColumns={leftPinnedColumns}
-          centerColumns={centerColumns}
-          rightPinnedColumns={rightPinnedColumns}
-          leftPinnedWidth={leftPinnedWidth}
-          rightPinnedWidth={rightPinnedWidth}
-          totalColumnWidth={totalColumnWidth}
-          totalSize={totalSize}
-          tableContainerRef={tableContainerRef}
-          rows={rows}
-          virtualRows={virtualRows}
-          virtualColumns={virtualColumns}
-          paddingLeft={paddingLeft}
-          paddingRight={paddingRight}
-          paddingTop={paddingTop}
-          paddingBottom={paddingBottom}
-          startIndex={startIndex}
-        />
-      )}
+      <div className="relative w-full h-full flex flex-col">
+        {/* Mobile Card View Warning - for now we show a message on very small screens if complex */}
+        <div className="md:hidden mb-4 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-md text-yellow-600 text-sm flex items-center gap-2">
+          <Maximize2 className="h-4 w-4" />
+          <span>For the best experience, view on a larger screen.</span>
+        </div>
+
+        {tableData.length > 0 && (
+          <TableRoot
+            tableInstance={tableInstance}
+            tableData={tableData}
+            globalFilterInput={globalFilterInput}
+            setGlobalFilterInput={setGlobalFilterInput}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            goToNextPage={goToNextPage}
+            goToPreviousPage={goToPreviousPage}
+            goToPage={goToPage}
+            rowSelection={rowSelection}
+            deleteSelectedRows={deleteSelectedRows}
+            visibleColumnsCount={visibleColumnsCount}
+            headers={headers}
+            getColumnStats={getColumnStats}
+            toggleColumn={toggleColumn}
+            showAllColumns={showAllColumns}
+            hideAllColumns={hideAllColumns}
+            leftPinnedColumns={leftPinnedColumns}
+            centerColumns={centerColumns}
+            rightPinnedColumns={rightPinnedColumns}
+            leftPinnedWidth={leftPinnedWidth}
+            rightPinnedWidth={rightPinnedWidth}
+            totalColumnWidth={totalColumnWidth}
+            totalSize={totalSize}
+            tableContainerRef={tableContainerRef}
+            rows={rows}
+            virtualRows={virtualRows}
+            virtualColumns={virtualColumns}
+            paddingLeft={paddingLeft}
+            paddingRight={paddingRight}
+            paddingTop={paddingTop}
+            paddingBottom={paddingBottom}
+            startIndex={startIndex}
+          />
+        )}
+      </div>
     </>
   )
 }

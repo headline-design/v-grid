@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Table2, ChevronDown, Columns3, Rows3, Filter, ArrowDownUp, Search, MoreHorizontal, Trash2, Undo2, Redo2, Keyboard, FileText, ClipboardPaste, Copy, X, Plus } from 'lucide-react'
+import { Table2, ChevronDown, Columns3, Rows3, Filter, ArrowDownUp, Search, MoreHorizontal, Trash2, Undo2, Redo2, Keyboard, FileText, ClipboardPaste, Copy, X, Plus, Sparkles } from 'lucide-react'
 import { useState } from "react"
 
 interface ColumnInfo {
@@ -139,20 +139,20 @@ export function Toolbar({
   }
 
   return (
-    <div className="flex items-center justify-between gap-2 px-3 py-2 border-b">
+    <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-background/50">
       <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto scrollbar-hide">
         <div className="flex items-center gap-1 flex-nowrap">
           {/* Actions Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-2 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-2 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <MoreHorizontal className="size-4" />
-                <p className="truncate text-sm font-medium">Actions</p>
+                <p className="truncate text-sm font-medium">Edit</p>
                 <ChevronDown className="size-3" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
-              <DropdownMenuLabel>Data Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>Table</DropdownMenuLabel>
               <DropdownMenuSeparator />
 
               {tableState?.hasData && (
@@ -178,7 +178,7 @@ export function Toolbar({
               </DropdownMenuItem>
 
               <DropdownMenuSeparator />
-              <DropdownMenuLabel>Data Operations</DropdownMenuLabel>
+              <DropdownMenuLabel>Rows</DropdownMenuLabel>
               <DropdownMenuSeparator />
 
               <DropdownMenuSub>
@@ -221,7 +221,7 @@ export function Toolbar({
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-1.5 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-1.5 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <Columns3 className="size-4" />
                 <span className="text-nowrap text-sm">
                   {visibleColumns}/{totalColumns} columns
@@ -271,7 +271,7 @@ export function Toolbar({
 
           <Popover open={isRowRangeOpen} onOpenChange={setIsRowRangeOpen}>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-1.5 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-1.5 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <Rows3 className="size-4" />
                 <span className="text-nowrap text-sm">
                   {tableState?.displayedRows || totalRows}/{totalRows.toLocaleString()} rows
@@ -325,7 +325,7 @@ export function Toolbar({
 
           <Popover open={showFilterDialog} onOpenChange={setShowFilterDialog}>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-1.5 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-1.5 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <Filter className="size-4" />
                 <span className="text-sm">Filter</span>
                 {activeFilters.length > 0 && (
@@ -451,7 +451,7 @@ export function Toolbar({
 
           <Popover open={showSortDialog} onOpenChange={setShowSortDialog}>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-1.5 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-1.5 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <ArrowDownUp className="size-4" />
                 <span className="text-sm">Sort</span>
                 {activeSorts.length > 0 && (
@@ -554,7 +554,7 @@ export function Toolbar({
 
           <Popover open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className="h-9 gap-1.5 px-3 flex-shrink-0">
+              <Button variant="ghost" className="h-8 gap-1.5 px-3 flex-shrink-0 text-muted-foreground hover:text-foreground hover:bg-white/5">
                 <Search className="size-4" />
                 <span className="text-sm">Search</span>
                 {searchInput && <span className="ml-1 text-xs text-muted-foreground">({searchInput.substring(0, 10)}...)</span>}
@@ -628,10 +628,10 @@ export function Toolbar({
       <div className="flex items-center gap-x-2 flex-shrink-0">
         <Button
           onClick={onToggleActions}
-          className="cursor-pointer select-none h-8 gap-x-1.5 bg-blue-500 hover:bg-blue-600 text-white"
+          className="cursor-pointer select-none h-8 gap-x-1.5 bg-foreground text-background hover:bg-foreground/90 border-0"
         >
           <span className="text-sm">Actions</span>
-          <Search className="size-4" />
+          <Sparkles className="size-4" />
         </Button>
       </div>
     </div>

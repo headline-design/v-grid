@@ -26,31 +26,28 @@ export default function LandingPage() {
             <span className="font-bold tracking-tight">V-Grid</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/features" className="hover:text-foreground transition-colors">
               Features
             </Link>
             <Link href="/demos" className="hover:text-foreground transition-colors">
               Demos
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/docs" className="hover:text-foreground transition-colors">
               Documentation
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/pricing" className="hover:text-foreground transition-colors">
               Pricing
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
-              Blog
+            <Link href="/changelog" className="hover:text-foreground transition-colors">
+              Changelog
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground hidden sm:block">
-              Log in
-            </Link>
             <Link
-              href="#"
+              href="https://v0.app"
               className="inline-flex h-8 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              Sign Up
+              Open in v0
             </Link>
           </div>
         </div>
@@ -86,7 +83,7 @@ export default function LandingPage() {
                   Start Building
                 </Link>
                 <Link
-                  href="#"
+                  href="/docs"
                   className="inline-flex h-12 items-center justify-center rounded-md border border-white/10 bg-white/5 px-8 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   Documentation
@@ -235,7 +232,7 @@ export default function LandingPage() {
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
                     </div>
-                    <p><span className="text-purple-400">import</span> {'{'} DataGrid {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">'v-grid'</span>;</p>
+                    <p><span className="text-purple-400">import</span> {'{'} DataGrid {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">'@/components/v-grid/data-grid'</span>;</p>
                     <p className="mt-2"><span className="text-purple-400">const</span> App = () ={'>'} (</p>
                     <p className="pl-4 text-blue-400">{'<DataGrid'}</p>
                     <p className="pl-8"><span className="text-orange-400">columns</span>={'{'}columns{'}'}</p>
@@ -274,7 +271,7 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
                 <div className="relative rounded-md border border-white/10 bg-black px-4 py-2 font-mono text-sm text-muted-foreground flex items-center gap-2">
-                  <span className="text-white">$</span> npm install v-grid
+                  <span className="text-white">$</span> npx v-grid init
                   <button className="ml-2 rounded p-1 hover:bg-white/10 transition-colors">
                     <span className="sr-only">Copy</span>
                     <svg
@@ -294,7 +291,7 @@ export default function LandingPage() {
                   </button>
                 </div>
                 <Link
-                  href="#"
+                  href="/pricing"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   Get Started
@@ -336,11 +333,11 @@ export default function LandingPage() {
             <div>
               <h3 className="mb-4 text-sm font-semibold text-white">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-white transition-colors">Features</Link></li>
+                <li><Link href="/features" className="hover:text-white transition-colors">Features</Link></li>
                 <li><Link href="/demos" className="hover:text-white transition-colors">Demos</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
+                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Examples</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
               </ul>
             </div>
             <div>
@@ -356,7 +353,7 @@ export default function LandingPage() {
               <h3 className="mb-4 text-sm font-semibold text-white">Company</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>
@@ -383,7 +380,7 @@ export default function LandingPage() {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
+              <Link href="https://github.com/headline-design/v-grid" className="text-muted-foreground hover:text-white transition-colors">
                 <span className="sr-only">GitHub</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
