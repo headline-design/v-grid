@@ -1,30 +1,54 @@
-# Vercel aesthetic landing page
+# V-Grid
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+**The Data Grid for the Modern Web.**
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/headline-team/v0-vercel-aesthetic-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/edrC5PGsc2l)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/headline-design/v-grid)
 
-## Overview
+V-Grid is a high-performance, headless data grid template built for React and Next.js. It combines the power of [TanStack Table](https://tanstack.com/table/v8) with the styling flexibility of [Tailwind CSS](https://tailwindcss.com).
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## ✨ Features
 
-## Deployment
+- **Virtual Scrolling:** Render thousands of rows with 60fps performance.
+- **Headless Architecture:** You own the UI. No impossible-to-override styles.
+- **Keyboard Navigation:** Navigate cells and rows using arrow keys, just like a spreadsheet.
+- **Rich Data Operations:** Sorting, filtering, pagination, and row selection out of the box.
+- **TypeScript:** Fully typed codebase for a superior developer experience.
+- **Modern Stack:** Built with Next.js 14, Tailwind CSS, and shadcn/ui.
 
-Your project is live at:
+## 🚀 Getting Started
 
-**[https://vercel.com/headline-team/v0-vercel-aesthetic-landing-page](https://vercel.com/headline-team/v0-vercel-aesthetic-landing-page)**
+### 1. Clone with v0
+The fastest way to start is using the v0 template:
+https://v0.app/templates/v-grid-fRhs5MEIcJT
 
-## Build your app
+### 2. Local Development
 
-Continue building your app on:
+\`\`\`bash
+# Install dependencies
+npm install
 
-**[https://v0.app/chat/edrC5PGsc2l](https://v0.app/chat/edrC5PGsc2l)**
+# Run the development server
+npm run dev
+\`\`\`
 
-## How It Works
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 📖 Documentation
+
+Visit our [documentation page](https://v-grid.vercel.app/docs) for detailed guides on:
+- Defining columns
+- Customizing cell renderers
+- Connecting to APIs
+- Theming and styling
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **Table Logic:** [TanStack Table](https://tanstack.com/table/v8)
+- **Icons:** [Lucide React](https://lucide.dev)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+
+## 📄 License
+
+MIT

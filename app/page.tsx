@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Check, ChevronRight, Code2, Cpu, Database, Globe, Layout, Zap, Terminal, Search, Command } from 'lucide-react'
+import { ArrowRight, Code2, Database, Globe, Layout, Zap, Command } from "lucide-react"
 
 export default function LandingPage() {
   return (
@@ -44,7 +44,7 @@ export default function LandingPage() {
           </nav>
           <div className="flex items-center gap-4">
             <Link
-              href="https://v0.app"
+              href="https://v0.app/templates/v-grid-fRhs5MEIcJT"
               className="inline-flex h-8 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               Open in v0
@@ -64,17 +64,17 @@ export default function LandingPage() {
                 V-Grid 2.0 is now available
                 <ArrowRight className="ml-1 h-3 w-3" />
               </div>
-              
+
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
                 The Data Grid <br />
                 for the Modern Web
               </h1>
-              
+
               <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                High-performance, feature-rich React data grid. 
-                Built for speed, designed for control, and engineered to handle millions of rows without skipping a frame.
+                High-performance, feature-rich React data grid. Built for speed, designed for control, and engineered to
+                handle millions of rows without skipping a frame.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                 <Link
                   href="/demos"
@@ -98,7 +98,10 @@ export default function LandingPage() {
                     <div className="h-3 w-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
                     <div className="h-3 w-3 rounded-full bg-green-500/20 border border-green-500/50" />
                   </div>
-                  <Link href="/demos" className="mx-auto flex items-center gap-2 rounded-md bg-black/50 px-3 py-1 text-xs text-muted-foreground border border-white/5 hover:text-white hover:border-white/20 transition-all cursor-pointer">
+                  <Link
+                    href="/demos"
+                    className="mx-auto flex items-center gap-2 rounded-md bg-black/50 px-3 py-1 text-xs text-muted-foreground border border-white/5 hover:text-white hover:border-white/20 transition-all cursor-pointer"
+                  >
                     <Command className="h-3 w-3" />
                     <span>demo.v-grid.com</span>
                   </Link>
@@ -115,19 +118,28 @@ export default function LandingPage() {
                   {/* Mock Grid Rows */}
                   <div className="overflow-hidden">
                     {[...Array(10)].map((_, i) => (
-                      <div key={i} className="grid grid-cols-6 border-b border-white/5 hover:bg-white/5 transition-colors group">
-                        <div className="p-3 border-r border-white/5 text-muted-foreground group-hover:text-white">#{2490 + i}</div>
+                      <div
+                        key={i}
+                        className="grid grid-cols-6 border-b border-white/5 hover:bg-white/5 transition-colors group"
+                      >
+                        <div className="p-3 border-r border-white/5 text-muted-foreground group-hover:text-white">
+                          #{2490 + i}
+                        </div>
                         <div className="p-3 border-r border-white/5 col-span-2 flex items-center gap-2">
                           <div className="h-5 w-5 rounded-full bg-gradient-to-br from-white/20 to-white/5" />
                           <span className="text-white">Company {String.fromCharCode(65 + i)} Inc.</span>
                         </div>
                         <div className="p-3 border-r border-white/5">
-                          <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium ${
-                            i % 3 === 0 ? 'bg-emerald-500/10 text-emerald-500' : 
-                            i % 3 === 1 ? 'bg-amber-500/10 text-amber-500' : 
-                            'bg-blue-500/10 text-blue-500'
-                          }`}>
-                            {i % 3 === 0 ? 'Paid' : i % 3 === 1 ? 'Pending' : 'Processing'}
+                          <span
+                            className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                              i % 3 === 0
+                                ? "bg-emerald-500/10 text-emerald-500"
+                                : i % 3 === 1
+                                  ? "bg-amber-500/10 text-amber-500"
+                                  : "bg-blue-500/10 text-blue-500"
+                            }`}
+                          >
+                            {i % 3 === 0 ? "Paid" : i % 3 === 1 ? "Pending" : "Processing"}
                           </span>
                         </div>
                         <div className="p-3 border-r border-white/5 text-white font-medium">
@@ -178,7 +190,7 @@ export default function LandingPage() {
                 <span className="text-muted-foreground">to build complex data interfaces.</span>
               </h2>
             </div>
-            
+
             <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
               {/* Feature 1 */}
               <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 transition-colors hover:border-white/20">
@@ -209,7 +221,8 @@ export default function LandingPage() {
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-white">Server-Side Model</h3>
                 <p className="text-muted-foreground">
-                  Seamlessly integrate with your backend. Infinite scrolling, pagination, and sorting handled efficiently.
+                  Seamlessly integrate with your backend. Infinite scrolling, pagination, and sorting handled
+                  efficiently.
                 </p>
               </div>
 
@@ -222,8 +235,8 @@ export default function LandingPage() {
                     </div>
                     <h3 className="mb-2 text-xl font-bold text-white">Developer Experience First</h3>
                     <p className="text-muted-foreground">
-                      Fully typed with TypeScript. Intuitive API design that feels like native React. 
-                      Comprehensive documentation and examples to get you started in minutes.
+                      Fully typed with TypeScript. Intuitive API design that feels like native React. Comprehensive
+                      documentation and examples to get you started in minutes.
                     </p>
                   </div>
                   <div className="relative rounded-lg border border-white/10 bg-black p-4 font-mono text-xs text-muted-foreground w-full md:w-auto min-w-[300px]">
@@ -232,14 +245,28 @@ export default function LandingPage() {
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
                     </div>
-                    <p><span className="text-purple-400">import</span> {'{'} DataGrid {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">'@/components/v-grid/data-grid'</span>;</p>
-                    <p className="mt-2"><span className="text-purple-400">const</span> App = () ={'>'} (</p>
-                    <p className="pl-4 text-blue-400">{'<DataGrid'}</p>
-                    <p className="pl-8"><span className="text-orange-400">columns</span>={'{'}columns{'}'}</p>
-                    <p className="pl-8"><span className="text-orange-400">rows</span>={'{'}rows{'}'}</p>
-                    <p className="pl-8"><span className="text-orange-400">virtualScroll</span></p>
-                    <p className="pl-8"><span className="text-orange-400">stickyHeader</span></p>
-                    <p className="pl-4 text-blue-400">{'/>'}</p>
+                    <p>
+                      <span className="text-purple-400">import</span> {"{"} DataGrid {"}"}{" "}
+                      <span className="text-purple-400">from</span>{" "}
+                      <span className="text-green-400">'@/components/v-grid/data-grid'</span>;
+                    </p>
+                    <p className="mt-2">
+                      <span className="text-purple-400">const</span> App = () ={">"} (
+                    </p>
+                    <p className="pl-4 text-blue-400">{"<DataGrid"}</p>
+                    <p className="pl-8">
+                      <span className="text-orange-400">columns</span>={"{"}columns{"}"}
+                    </p>
+                    <p className="pl-8">
+                      <span className="text-orange-400">rows</span>={"{"}rows{"}"}
+                    </p>
+                    <p className="pl-8">
+                      <span className="text-orange-400">virtualScroll</span>
+                    </p>
+                    <p className="pl-8">
+                      <span className="text-orange-400">stickyHeader</span>
+                    </p>
+                    <p className="pl-4 text-blue-400">{"/>"}</p>
                     <p>);</p>
                   </div>
                 </div>
@@ -326,43 +353,92 @@ export default function LandingPage() {
                 <span className="font-bold tracking-tight text-white">V-Grid</span>
               </div>
               <p className="text-sm text-muted-foreground max-w-xs">
-                The high-performance React data grid for modern web applications. 
-                Built by developers, for developers.
+                The high-performance React data grid for modern web applications. Built by developers, for developers.
               </p>
             </div>
             <div>
               <h3 className="mb-4 text-sm font-semibold text-white">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/features" className="hover:text-white transition-colors">Features</Link></li>
-                <li><Link href="/demos" className="hover:text-white transition-colors">Demos</Link></li>
-                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Examples</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li>
+                  <Link href="/features" className="hover:text-white transition-colors">
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demos" className="hover:text-white transition-colors">
+                    Demos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/docs" className="hover:text-white transition-colors">
+                    Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Examples
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pricing" className="hover:text-white transition-colors">
+                    Pricing
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="mb-4 text-sm font-semibold text-white">Resources</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-white transition-colors">Community</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Help Center</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Partners</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Status</Link></li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Community
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Partners
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Status
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="mb-4 text-sm font-semibold text-white">Company</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/changelog" className="hover:text-white transition-colors">
+                    Changelog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-            <p className="text-xs text-muted-foreground">
-              © 2025 V-Grid Inc. All rights reserved.
-            </p>
+            <p className="text-xs text-muted-foreground">© 2025 V-Grid Inc. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
                 <span className="sr-only">Twitter</span>
@@ -380,7 +456,10 @@ export default function LandingPage() {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
               </Link>
-              <Link href="https://github.com/headline-design/v-grid" className="text-muted-foreground hover:text-white transition-colors">
+              <Link
+                href="https://github.com/headline-design/v-grid"
+                className="text-muted-foreground hover:text-white transition-colors"
+              >
                 <span className="sr-only">GitHub</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

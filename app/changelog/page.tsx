@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, Package, Sparkles } from 'lucide-react'
+import { ArrowLeft, Package, Sparkles } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 
@@ -56,7 +56,7 @@ export default function ChangelogPage() {
               Try Demo
             </Link>
             <Link
-              href="https://v0.app"
+              href="https://v0.app/templates/v-grid-fRhs5MEIcJT"
               className="inline-flex h-8 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               Open in v0
@@ -69,8 +69,8 @@ export default function ChangelogPage() {
         <div className="flex flex-col space-y-8">
           {/* Header */}
           <div className="space-y-4">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -93,7 +93,9 @@ export default function ChangelogPage() {
               <div className="flex-1 space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                   <h2 className="text-2xl font-bold tracking-tight">Version 0.1.0</h2>
-                  <Badge variant="outline" className="w-fit">Initial Release</Badge>
+                  <Badge variant="outline" className="w-fit">
+                    Initial Release
+                  </Badge>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <time dateTime="2025-01-15">January 15, 2025</time>
@@ -105,9 +107,9 @@ export default function ChangelogPage() {
 
             <div className="ml-14 space-y-6">
               <p className="text-muted-foreground leading-relaxed">
-                We're excited to announce the first release of V-Grid, a high-performance React data grid 
-                built with the Vercel aesthetic in mind. This initial version focuses on providing a robust 
-                foundation for working with static datasets.
+                We're excited to announce the first release of V-Grid, a high-performance React data grid built with the
+                Vercel aesthetic in mind. This initial version focuses on providing a robust foundation for working with
+                static datasets.
               </p>
 
               {/* Core Features */}
@@ -119,35 +121,59 @@ export default function ChangelogPage() {
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Virtual Scrolling:</strong> Efficiently render large datasets with smooth 60fps performance using row and column virtualization.</span>
+                    <span>
+                      <strong className="text-foreground">Virtual Scrolling:</strong> Efficiently render large datasets
+                      with smooth 60fps performance using row and column virtualization.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Multi-Column Sorting:</strong> Sort by multiple columns simultaneously with type-aware comparators for strings, numbers, dates, and more.</span>
+                    <span>
+                      <strong className="text-foreground">Multi-Column Sorting:</strong> Sort by multiple columns
+                      simultaneously with type-aware comparators for strings, numbers, dates, and more.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Advanced Filtering:</strong> Global search across all columns plus column-specific filters with operators like "contains", "equals", and "starts with".</span>
+                    <span>
+                      <strong className="text-foreground">Advanced Filtering:</strong> Global search across all columns
+                      plus column-specific filters with operators like "contains", "equals", and "starts with".
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Inline Cell Editing:</strong> Double-click or press Enter to edit cells directly with automatic type validation and undo/redo support.</span>
+                    <span>
+                      <strong className="text-foreground">Inline Cell Editing:</strong> Double-click or press Enter to
+                      edit cells directly with automatic type validation and undo/redo support.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Row Selection:</strong> Single and multi-row selection with keyboard shortcuts and bulk operations.</span>
+                    <span>
+                      <strong className="text-foreground">Row Selection:</strong> Single and multi-row selection with
+                      keyboard shortcuts and bulk operations.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Column Management:</strong> Show/hide columns, resize headers, and customize visibility on the fly.</span>
+                    <span>
+                      <strong className="text-foreground">Column Management:</strong> Show/hide columns, resize headers,
+                      and customize visibility on the fly.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Keyboard Navigation:</strong> Full keyboard support modeled after Excel and Google Sheets with arrow keys, Enter, Escape, and more.</span>
+                    <span>
+                      <strong className="text-foreground">Keyboard Navigation:</strong> Full keyboard support modeled
+                      after Excel and Google Sheets with arrow keys, Enter, Escape, and more.
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-500 mt-1">✓</span>
-                    <span><strong className="text-foreground">Import & Export:</strong> Load data from CSV files or paste from clipboard. Export to CSV or JSON formats.</span>
+                    <span>
+                      <strong className="text-foreground">Import & Export:</strong> Load data from CSV files or paste
+                      from clipboard. Export to CSV or JSON formats.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -158,7 +184,11 @@ export default function ChangelogPage() {
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <span className="text-blue-500">→</span>
-                    <span>Built on <code className="bg-white/10 px-1.5 py-0.5 rounded text-sm font-mono">@tanstack/react-table</code> for robust data management</span>
+                    <span>
+                      Built on{" "}
+                      <code className="bg-white/10 px-1.5 py-0.5 rounded text-sm font-mono">@tanstack/react-table</code>{" "}
+                      for robust data management
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-blue-500">→</span>
@@ -214,9 +244,8 @@ export default function ChangelogPage() {
               <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-6 space-y-3">
                 <h3 className="text-lg font-semibold text-blue-400">What's Next?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Future releases will expand V-Grid's capabilities with server-side data operations, 
-                  column grouping, row grouping, infinite scrolling, and more advanced cell types. 
-                  Stay tuned for v0.2.0 coming soon!
+                  Future releases will expand V-Grid's capabilities with server-side data operations, column grouping,
+                  row grouping, infinite scrolling, and more advanced cell types. Stay tuned for v0.2.0 coming soon!
                 </p>
               </div>
 
@@ -250,14 +279,15 @@ export default function ChangelogPage() {
       <footer className="border-t border-white/10 bg-black py-12">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-muted-foreground">
-              © 2025 V-Grid Inc. All rights reserved.
-            </p>
+            <p className="text-xs text-muted-foreground">© 2025 V-Grid Inc. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
                 Twitter
               </Link>
-              <Link href="https://github.com/headline-design/v-grid" className="text-muted-foreground hover:text-white transition-colors">
+              <Link
+                href="https://github.com/headline-design/v-grid"
+                className="text-muted-foreground hover:text-white transition-colors"
+              >
                 GitHub
               </Link>
             </div>

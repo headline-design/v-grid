@@ -1,6 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Check, Code2, Cpu, Database, Globe, Keyboard, Layout, Zap, MousePointer2, Palette, ShieldCheck } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Check, Code2, Cpu, Database, Keyboard, Layout, Zap, MousePointer2, Palette, ShieldCheck } from "lucide-react"
 
 export default function FeaturesPage() {
   return (
@@ -47,7 +46,7 @@ export default function FeaturesPage() {
           </nav>
           <div className="flex items-center gap-4">
             <Link
-              href="https://v0.app"
+              href="https://v0.app/templates/v-grid-fRhs5MEIcJT"
               className="inline-flex h-8 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               Open in v0
@@ -66,14 +65,15 @@ export default function FeaturesPage() {
                 <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
                 Engineered for scale
               </div>
-              
+
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
                 Performance meets <br />
                 Precision.
               </h1>
-              
+
               <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                A deep dive into the architecture that makes V-Grid the fastest and most flexible React data grid on the market.
+                A deep dive into the architecture that makes V-Grid the fastest and most flexible React data grid on the
+                market.
               </p>
             </div>
           </div>
@@ -94,8 +94,8 @@ export default function FeaturesPage() {
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-white">Virtualization Engine</h3>
                   <p className="text-muted-foreground">
-                    Our core rendering engine only draws what is visible in the viewport. 
-                    Scroll through 100,000+ rows with consistent 60fps performance and minimal memory footprint.
+                    Our core rendering engine only draws what is visible in the viewport. Scroll through 100,000+ rows
+                    with consistent 60fps performance and minimal memory footprint.
                   </p>
                 </div>
               </div>
@@ -111,8 +111,8 @@ export default function FeaturesPage() {
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-white">Headless Design</h3>
                   <p className="text-muted-foreground">
-                    Built on top of TanStack Table, V-Grid gives you complete control over the UI. 
-                    We provide the logic and structure; you provide the style via Tailwind CSS.
+                    Built on top of TanStack Table, V-Grid gives you complete control over the UI. We provide the logic
+                    and structure; you provide the style via Tailwind CSS.
                   </p>
                 </div>
               </div>
@@ -128,8 +128,8 @@ export default function FeaturesPage() {
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-white">Type Safety</h3>
                   <p className="text-muted-foreground">
-                    Written in TypeScript from the ground up. Enjoy full type inference for your data columns, 
-                    props, and event handlers. No more guessing `any`.
+                    Written in TypeScript from the ground up. Enjoy full type inference for your data columns, props,
+                    and event handlers. No more guessing `any`.
                   </p>
                 </div>
               </div>
@@ -140,7 +140,6 @@ export default function FeaturesPage() {
         {/* Feature Deep Dive */}
         <section className="py-24 bg-black">
           <div className="container mx-auto px-4 md:px-6 space-y-24">
-            
             {/* Interaction */}
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="flex-1 space-y-6">
@@ -151,8 +150,8 @@ export default function FeaturesPage() {
                   Keyboard First Navigation
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Power users shouldn't have to reach for the mouse. V-Grid supports full keyboard navigation 
-                  modeled after Excel and Google Sheets.
+                  Power users shouldn't have to reach for the mouse. V-Grid supports full keyboard navigation modeled
+                  after Excel and Google Sheets.
                 </p>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-center gap-3">
@@ -185,8 +184,13 @@ export default function FeaturesPage() {
                       <div className="p-4">Status</div>
                     </div>
                     {[1, 2, 3].map((i) => (
-                      <div key={i} className={`grid grid-cols-3 border-b border-white/5 ${i === 2 ? 'bg-blue-500/20' : ''}`}>
-                        <div className={`p-4 border-r border-white/5 text-sm ${i === 2 ? 'text-white ring-1 ring-inset ring-blue-500' : 'text-muted-foreground'}`}>
+                      <div
+                        key={i}
+                        className={`grid grid-cols-3 border-b border-white/5 ${i === 2 ? "bg-blue-500/20" : ""}`}
+                      >
+                        <div
+                          className={`p-4 border-r border-white/5 text-sm ${i === 2 ? "text-white ring-1 ring-inset ring-blue-500" : "text-muted-foreground"}`}
+                        >
                           User {i}
                         </div>
                         <div className="p-4 border-r border-white/5 text-sm text-muted-foreground">Developer</div>
@@ -204,12 +208,10 @@ export default function FeaturesPage() {
                 <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white">
                   Data Management
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">
-                  Powerful Data Operations
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">Powerful Data Operations</h2>
                 <p className="text-lg text-muted-foreground">
-                  Sort, filter, and group your data with zero latency. V-Grid handles complex data operations 
-                  on the client side or integrates seamlessly with server-side logic.
+                  Sort, filter, and group your data with zero latency. V-Grid handles complex data operations on the
+                  client side or integrates seamlessly with server-side logic.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-lg border border-white/10 bg-white/5 p-4">
@@ -253,7 +255,6 @@ export default function FeaturesPage() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -290,14 +291,15 @@ export default function FeaturesPage() {
       <footer className="border-t border-white/10 bg-black py-12">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-muted-foreground">
-              © 2025 V-Grid Inc. All rights reserved.
-            </p>
+            <p className="text-xs text-muted-foreground">© 2025 V-Grid Inc. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
                 Twitter
               </Link>
-              <Link href="https://github.com/headline-design/v-grid" className="text-muted-foreground hover:text-white transition-colors">
+              <Link
+                href="https://github.com/headline-design/v-grid"
+                className="text-muted-foreground hover:text-white transition-colors"
+              >
                 GitHub
               </Link>
             </div>
