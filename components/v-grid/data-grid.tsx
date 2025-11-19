@@ -1393,7 +1393,7 @@ export function DataGrid({ onStateChange, scrollContainerRef }: DataGridProps) {
                     Pin to Left
                   </>
                 )}
-              </DropdownMenu>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => table && autoSizeColumn(header, table)} className="text-xs">
                 <Maximize2 className="mr-2 h-3 w-3" />
